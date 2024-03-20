@@ -28,7 +28,7 @@ function EditAccommodationPage() {
     try {
       const response = await axios.put(`https://homelytics-project-server.onrender.com/places/update/${id}`, updatedData);
       if (response.data.success) {
-        alert("Changes Saved Successfully !! ")
+        alert("Changes Saved")
       } else {
         console.error("Failed to update accommodation:", response.data.error);
       }
@@ -37,36 +37,17 @@ function EditAccommodationPage() {
     }
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData(e.target);
-  //   const updatedData = {};
-  //   formData.forEach((value, key) => {
-  //     updatedData[key] = value;
-  //   });
-  //   handleUpdate(updatedData);
-  //   window.location.href = `/account/places`;
-  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("title", e.target.title.value);
-    formData.append("address", e.target.address.value);
-    formData.append("description", e.target.description.value);
-    formData.append("message", e.target.message.value);
-    formData.append("checkIn", e.target.checkIn.value);
-    formData.append("checkOut", e.target.checkOut.value);
-    formData.append("maxGuests", e.target.maxGuests.value);
-    formData.append("price", e.target.price.value);
-
-    if (file) {
-      formData.append("image", file);
-    }
-
-    handleUpdate(formData);
+    const formData = new FormData(e.target);
+    const updatedData = {};
+    formData.forEach((value, key) => {
+      updatedData[key] = value;
+    });
+    handleUpdate(updatedData);
+    alert("Changes Saved Successfully !!")
     window.location.href = `/account/places`;
   };
-  
 
   if (!accommodation) {
     return <div>Loading...</div>;
