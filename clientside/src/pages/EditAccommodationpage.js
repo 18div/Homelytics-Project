@@ -28,7 +28,7 @@ function EditAccommodationPage() {
     try {
       const response = await axios.put(`https://homelytics-project-server.onrender.com/places/update/${id}`, updatedData);
       if (response.data.success) {
-        alert("Changes doesnt Saved TRY AGAIN..")
+        //Comment
       } else {
         console.error("Failed to update accommodation:", response.data.error);
       }
