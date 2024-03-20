@@ -84,7 +84,54 @@ function EditAccommodationPage() {
           />
         </label>
         <label className="block">
+          <span className="text-gray-700">Message:</span>
+          <input
+            type="text"
+            name="description"
+            defaultValue={accommodation.message}
+            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+          />
+        </label>
+        <label className="block">
           <span className="text-gray-700">Upload Image:</span>
+          <div className="flex items-center space-x-2">
+            <input
+              type="file"
+              id="imageFile"
+              name="image"
+              onChange={(e) => {
+                setFile(e.target.files[0]);
+              }}
+            />
+            <button
+              type="submit"
+              className="bg-purple-700 text-white py-2 px-4 rounded hover:bg-green-600"
+            >
+              Upload
+            </button>
+          </div>
+        </label>
+        <label className="block">
+          <span className="text-gray-700">Room Image:</span>
+          <div className="flex items-center space-x-2">
+            <input
+              type="file"
+              id="imageFile"
+              name="image"
+              onChange={(e) => {
+                setFile(e.target.files[0]);
+              }}
+            />
+            <button
+              type="submit"
+              className="bg-purple-700 text-white py-2 px-4 rounded hover:bg-green-600"
+            >
+              Upload
+            </button>
+          </div>
+        </label>
+        <label className="block">
+          <span className="text-gray-700">Lobby Image:</span>
           <div className="flex items-center space-x-2">
             <input
               type="file"
