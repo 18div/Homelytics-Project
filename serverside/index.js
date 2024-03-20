@@ -19,7 +19,7 @@ require('dotenv').config();
 app.use(express.json());
 app.use(cors({
   credentials: true,
-  origin: 'https://homelytics-project.vercel.app/',
+  origin: 'https://homelytics-web.vercel.app',
 }));
 app.use(express.static('public'));
 
