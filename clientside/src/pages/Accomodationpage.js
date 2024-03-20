@@ -8,10 +8,9 @@ import { FaTrashAlt, FaEdit } from "react-icons/fa";
 function Accomodationpage() {
   const [accommodations, setAccommodations] = useState([]);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-
+  const userIdFromCookie = Cookies.get("userId");
   useEffect(() => {
     const fetchAccommodations = async () => {
-      const userIdFromCookie = Cookies.get("userId");
       console.log(userIdFromCookie);
       try {
         if (userIdFromCookie) {
