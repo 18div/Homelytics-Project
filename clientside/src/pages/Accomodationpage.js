@@ -11,15 +11,14 @@ function Accomodationpage() {
 
   useEffect(() => {
     const fetchAccommodations = async () => {
+      const userIdFromCookie = Cookies.get("userId");
       try {
-        const userIdFromCookie = Cookies.get("userId");
         if (userIdFromCookie) {
           const response = await axios.get(
             `https://homelytics-project-server.onrender.com/places/${userIdFromCookie}`
           );
           if (response.data.success) {
             setAccommodations(response.data.places);
-            console.log(typeof accommodations.photos[0]);
           } else {
             console.error(
               "Failed to fetch accommodation places:",
