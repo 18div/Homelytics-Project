@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import io from 'socket.io-client';
 import { useParams } from "react-router-dom";
-const socket = io('http://localhost:6050');
+const socket = io('https://homelytics-project-server.onrender.com');
 
 const ChatScreen = () => {
   const { chatId, senderId, receiverId } = useParams();
