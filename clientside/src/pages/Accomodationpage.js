@@ -15,7 +15,7 @@ function Accomodationpage() {
         const userIdFromCookie = Cookies.get("userId");
         if (userIdFromCookie) {
           const response = await axios.get(
-            `https://homelytics-app.onrender.com/places/${userIdFromCookie}`
+            `https://homelytics-project-server.onrender.com/places/${userIdFromCookie}`
           );
           if (response.data.success) {
             setAccommodations(response.data.places);
@@ -53,7 +53,7 @@ function Accomodationpage() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://homelytics-app.onrender.com/places/delete/${id}`);
+      await axios.delete(`https://homelytics-project-server.onrender.com/places/delete/${id}`);
       setAccommodations(
         accommodations.filter((accommodation) => accommodation._id !== id)
       );
@@ -89,7 +89,7 @@ function Accomodationpage() {
               >
                 <div className="mr-4">
                   <img
-                    src={`https://homelytics-app.onrender.com/${slicedUrl}`}
+                    src={`https://homelytics-project-server.onrender.com/${slicedUrl}`}
                     alt={accommodation.title}
                     className="w-32 h-32 object-cover rounded-lg border border-purple-000"
                   />

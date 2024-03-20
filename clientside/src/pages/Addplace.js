@@ -78,7 +78,7 @@ const handlePerkChange = (perk) => {
 
       formData.append("perks", JSON.stringify(perks));
 
-      const response = await axios.post("https://homelytics-app.onrender.com/places", formData, {
+      const response = await axios.post("https://homelytics-project-server.onrender.com/places", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
