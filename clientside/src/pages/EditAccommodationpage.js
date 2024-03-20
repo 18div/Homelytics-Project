@@ -10,7 +10,7 @@ function EditAccommodationPage() {
   useEffect(() => {
     const fetchAccommodation = async () => {
       try {
-        const response = await axios.get(`https://homelytics-project-server.onrender.com/edit/places/${id}`);
+        const response = await axios.get(`http://localhost:6050/edit/places/${id}`);
         if (response.data.success) {
           setAccommodation(response.data.place);
         } else {
@@ -26,7 +26,7 @@ function EditAccommodationPage() {
 
   const handleUpdate = async (updatedData) => {
     try {
-      const response = await axios.put(`https://homelytics-project-server.onrender.com/places/update/${id}`, updatedData);
+      const response = await axios.put(`http://localhost:6050/places/update/${id}`, updatedData);
       if (response.data.success) {
         alert("Changes Saved Successfully !!")
       } else {
@@ -87,7 +87,7 @@ function EditAccommodationPage() {
           <span className="text-gray-700">Message:</span>
           <input
             type="text"
-            name="description"
+            name="message"
             defaultValue={accommodation.message}
             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
           />
@@ -103,16 +103,10 @@ function EditAccommodationPage() {
                 setFile(e.target.files[0]);
               }}
             />
-            <button
-              type="submit"
-              className="bg-purple-700 text-white py-2 px-4 rounded hover:bg-green-600"
-            >
-              Upload
-            </button>
           </div>
         </label>
         <label className="block">
-          <span className="text-gray-700">Room Image:</span>
+          <span className="text-gray-700">Rooms Image:</span>
           <div className="flex items-center space-x-2">
             <input
               type="file"
@@ -122,12 +116,6 @@ function EditAccommodationPage() {
                 setFile(e.target.files[0]);
               }}
             />
-            <button
-              type="submit"
-              className="bg-purple-700 text-white py-2 px-4 rounded hover:bg-green-600"
-            >
-              Upload
-            </button>
           </div>
         </label>
         <label className="block">
@@ -141,12 +129,6 @@ function EditAccommodationPage() {
                 setFile(e.target.files[0]);
               }}
             />
-            <button
-              type="submit"
-              className="bg-purple-700 text-white py-2 px-4 rounded hover:bg-green-600"
-            >
-              Upload
-            </button>
           </div>
         </label>
         <label className="block">
