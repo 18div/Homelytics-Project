@@ -12,6 +12,7 @@ function Accomodationpage() {
   useEffect(() => {
     const fetchAccommodations = async () => {
       const userIdFromCookie = Cookies.get("userId");
+      console.log(userIdFromCookie);
       try {
         if (userIdFromCookie) {
           const response = await axios.get(
