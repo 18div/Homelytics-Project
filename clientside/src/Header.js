@@ -10,7 +10,7 @@ function Header() {
     const token = localStorage.getItem('token');
     console.log("Token from local storage:", token);
     if (token) {
-      axios.get("https://homelytics-project-server.onrender.com/user", {
+      axios.get("https://homelytics-project.onrender.com/user", {
         headers: {
           Authorization: token
         }
@@ -44,7 +44,7 @@ function Header() {
     <header className={"flex justify-between"}>
         <a href="/" className="flex items-center gap-1">
           <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
@@ -68,7 +68,7 @@ function Header() {
           <div>AnyPrice</div>
           <button className="bg-purple-700  text-white rounded-full p-1">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="https://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke-width="1.5"
@@ -86,7 +86,7 @@ function Header() {
         </div>
         <Link to={userName ? '/account' :'/login'} className="flex border border-purple-700 rounded-full py-2 px-4 gap-3  items-center">
           <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
@@ -101,7 +101,7 @@ function Header() {
           </svg>
           <div className="bg-gray-500 text-white rounded-full border-gray-500 overflow-hidden">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns="https://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
               class="w-6 h-6 relative top-1"

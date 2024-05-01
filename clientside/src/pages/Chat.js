@@ -55,7 +55,7 @@ const Chat = () => {
       const user_id = Cookies.get("userId");
       setUserId(user_id);
       try {
-        const response = await fetch(`https://homelytics-project-server.onrender.com/find-users`);
+        const response = await fetch(`https://homelytics-project.onrender.com/find-users`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -77,7 +77,7 @@ const Chat = () => {
 
   const handleJoinPress = async (selectedUserId) => {
     try {
-      const response = await fetch("https://homelytics-project-server.onrender.com/chat/create", {
+      const response = await fetch("https://homelytics-project.onrender.com/chat/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -107,7 +107,7 @@ const Chat = () => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:8050", {
+    const newSocket = io("https://localhost:8050", {
       transports: ["websocket"],
       jsonp: false,
       forceNew: true,
@@ -144,7 +144,7 @@ const Chat = () => {
   const fetchUserChats = async (userId) => {
     try {
       const response = await fetch(
-        `https://homelytics-project-server.onrender.com/findUserchat/chats/${userId}`
+        `https://homelytics-project.onrender.com/findUserchat/chats/${userId}`
       );
 
       if (!response.ok) {
@@ -175,7 +175,7 @@ const Chat = () => {
   const fetchUserName = async (userId) => {
     try {
       const response = await fetch(
-        `https://homelytics-project-server.onrender.com/find/byUserId/${userId}`
+        `https://homelytics-project.onrender.com/find/byUserId/${userId}`
       );
 
       if (!response.ok) {

@@ -16,11 +16,13 @@ require('dotenv').config();
 
 
 
+const corsOptions = {
+  origin: '*',
+  credentials:true,
+};
+
 app.use(express.json());
-app.use(cors({
-  credentials: true,
-  origin: 'https://homelytics-web.vercel.app',
-}));
+app.use(cors(corsOptions));
 app.use(express.static('public'));
 
 mongoose.connect(process.env.MONGO_URL)

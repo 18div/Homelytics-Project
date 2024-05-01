@@ -15,7 +15,7 @@ function Indexpage() {
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
-        const response = await axios.get(`https://homelytics-project-server.onrender.com/all/places`);
+        const response = await axios.get(`https://homelytics-project.onrender.com/all/places`);
         if (response.data.success) {
           setPlaces(response.data.places);
           setLoading(false);
@@ -54,10 +54,10 @@ function Indexpage() {
             style={{ minHeight: "300px" }} // Set a minimum height for each box
           >
             <img
-              src={`https://homelytics-project-server.onrender.com/${slicedUrl}`}
+              src={`https://homelytics-project.onrender.com/${slicedUrl}`}
               alt={place.title}
               className="w-full object-cover rounded-t-lg border border-purple-000"
-              style={{ maxHeight: "250px" }} // Limiting the max height for consistency
+              style={{ maxHeight: "250px" }} 
             />
             <div className="p-4 flex-1 flex flex-col justify-between">
               <div>

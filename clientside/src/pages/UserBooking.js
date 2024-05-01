@@ -11,7 +11,7 @@ function UserBookingPage() {
       try {
         const userId = Cookies.get("userId");
         const response = await fetch(
-          `https://homelytics-project-server.onrender.com/user/bookings?userId=${userId}`
+          `https://homelytics-project.onrender.com/user/bookings?userId=${userId}`
         );
         if (response.ok) {
           const data = await response.json();
@@ -35,7 +35,7 @@ function UserBookingPage() {
       try {
         const promises = bookings.map(async (booking) => {
           const response = await fetch(
-            `https://homelytics-project-server.onrender.com/place/${booking.placeId}`
+            `https://homelytics-project.onrender.com/place/${booking.placeId}`
           );
           if (response.ok) {
             const data = await response.json();
@@ -102,7 +102,7 @@ function UserBookingPage() {
           {bookings.map((booking) => (
             <div
               key={booking._id}
-              className="w-full sm:w-40 md:w-48 lg:w-96 p-2"
+              className="w-full sm:w-40 md:w-40 lg:w-96 p-2"
             >
               <div className="border rounded-lg p-4 flex flex-col items-center">
                 {" "}
@@ -120,7 +120,7 @@ function UserBookingPage() {
                     </div>
                     {placeDetails[booking.placeId].photos && (
                       <img
-                        src={`https://homelytics-project-server.onrender.com/${placeDetails[
+                        src={`https://homelytics-project.onrender.com/${placeDetails[
                           booking.placeId
                         ].photos.slice(7)}`}
                         alt="Place"
