@@ -12,7 +12,7 @@ function Profile() {
     const fetchUserData = async () => {
       try {
         if (userIdFromCookie) {
-          const response = await axios.get(`https://homelytics-project.onrender.com/api/user/${userIdFromCookie}`)
+          const response = await axios.get(`https://homelytics-project-server.onrender.com//api/user/${userIdFromCookie}`)
           setUser(response.data.user);
         } else {
           console.error("User ID or token not found in cookies.");
@@ -43,7 +43,7 @@ function Profile() {
           <h1 className="text-2xl font-semibold mb-4 text-center">My Profile</h1>
             <div className="flex justify-center mb-4">
               <img
-                src={`https://homelytics-project.onrender.com/${URL}`}
+                src={`https://homelytics-project-server.onrender.com//${URL}`}
                 alt="User"
                 className="rounded-full w-20 h-20 object-cover"
               />

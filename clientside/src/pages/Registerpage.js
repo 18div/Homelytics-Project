@@ -18,7 +18,7 @@ function Registerpage() {
         formData.append('image', image);
 
         try {
-            const response = await axios.post("https://homelytics-project.onrender.com/register", formData, {
+            const response = await axios.post("https://homelytics-project-server.onrender.com//register", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

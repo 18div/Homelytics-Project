@@ -10,7 +10,7 @@ function Header() {
     const token = localStorage.getItem('token');
     console.log("Token from local storage:", token);
     if (token) {
-      axios.get("https://homelytics-project.onrender.com/user", {
+      axios.get("https://homelytics-project-server.onrender.com//user", {
         headers: {
           Authorization: token
         }
