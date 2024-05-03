@@ -27,7 +27,7 @@ function PlacePage() {
   useEffect(() => {
     const fetchPlace = async () => {
       try {
-        const response = await axios.get(`https://homelytics-project-server.onrender.com//place/${id}`);
+        const response = await axios.get(`https://homelytics-project-server.onrender.com/place/${id}`);
         if (response.data.success) {
           setPlace(response.data.place);
           setLoading(false);
@@ -112,7 +112,7 @@ function PlacePage() {
     };
   
     try {
-      const userBookings = await axios.get(`https://homelytics-project-server.onrender.com//user/bookings?userId=${userId}`);
+      const userBookings = await axios.get(`https://homelytics-project-server.onrender.com/user/bookings?userId=${userId}`);
       const overlappingBooking = userBookings.data.bookings.find(booking => {
         return (
           (new Date(booking.checkInDate) <= new Date(checkOutDate)) &&
@@ -123,7 +123,7 @@ function PlacePage() {
       if (overlappingBooking) {
         alert("You cannot book this place as you have overlapping booking dates.");
       } else {
-        const response = await axios.post("https://homelytics-project-server.onrender.com//book", bookingData);
+        const response = await axios.post("https://homelytics-project-server.onrender.com/book", bookingData);
         if (response.data.success && numGuests <= place.maxGuests && !checkoutError) {
           alert("Thank you!!! Your booking is confirmed. Visit the Booking Page for confirmation.");
         } else {
@@ -146,7 +146,7 @@ function PlacePage() {
         <div className="w-full mb-8">
         <div className="relative mb-8">
           <img
-            src={`https://homelytics-project-server.onrender.com//${url}`}
+            src={`https://homelytics-project-server.onrender.com/${url}`}
             alt={place.title}
             className="w-full h-auto object-cover rounded-lg mx-auto"
             style={{ maxHeight: '80vh' }}
@@ -208,14 +208,14 @@ function PlacePage() {
           <div className="flex flex-col mt-4">
             {url2 && (
               <img
-                src={`https://homelytics-project-server.onrender.com//${url2}`}
+                src={`https://homelytics-project-server.onrender.com/${url2}`}
                 alt="Room"
                 className="w-full h-auto mb-4 sm:mb-0 sm:mr-2"
               />
             )}
             {url3 && (
               <img
-                src={`https://homelytics-project-server.onrender.com//${url3}`}
+                src={`https://homelytics-project-server.onrender.com/${url3}`}
                 alt="Lobby"
                 className="w-full h-auto"
               />
@@ -225,14 +225,14 @@ function PlacePage() {
           <div className="flex justify-between mt-4 sm:mt-0">
             {url2 && (
               <img
-                src={`https://homelytics-project-server.onrender.com//${url2}`}
+                src={`https://homelytics-project-server.onrender.com/${url2}`}
                 alt="Room"
                 className="w-48 h-48 sm:w-96 sm:h-96 object-cover rounded-lg mb-4 sm:mr-2"
               />
             )}
             {url3 && (
               <img
-                src={`https://homelytics-project-server.onrender.com//${url3}`}
+                src={`https://homelytics-project-server.onrender.com/${url3}`}
                 alt="Lobby"
                 className="w-48 h-48 sm:w-96 sm:h-96 object-cover rounded-lg mb-4 sm:mr-2"
               />
@@ -280,7 +280,7 @@ export default PlacePage;
 //   useEffect(() => {
 //     const fetchPlace = async () => {
 //       try {
-//         const response = await axios.get(`https://homelytics-project-server.onrender.com//place/${id}`);
+//         const response = await axios.get(`https://homelytics-project-server.onrender.com/place/${id}`);
 //         if (response.data.success) {
 //           setPlace(response.data.place);
 //           setLoading(false);
@@ -316,7 +316,7 @@ export default PlacePage;
 //         <div className="w-full md:w-1/2 pr-0 md:pr-8">
 //           {url && (
 //             <img
-//               src={`https://homelytics-project-server.onrender.com//${url}`}
+//               src={`https://homelytics-project-server.onrender.com/${url}`}
 //               alt={place.title}
 //               className="w-full h-80vh object-cover rounded-lg mb-8"
 //             />

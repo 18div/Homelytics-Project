@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import io from 'socket.io-client';
 import { useParams } from "react-router-dom";
-const socket = io('https://homelytics-project-server.onrender.com/');
+const socket = io('https://homelytics-project-server.onrender.com');
 
 const ChatScreen = () => {
   const { chatId, senderId, receiverId } = useParams();
@@ -39,7 +39,7 @@ const ChatScreen = () => {
 
   const fetchChatMessages = async (chatId) => {
     try {
-      const response = await fetch(`https://homelytics-project-server.onrender.com//chat/get/messages/${chatId}`);
+      const response = await fetch(`https://homelytics-project-server.onrender.com/chat/get/messages/${chatId}`);
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -56,7 +56,7 @@ const ChatScreen = () => {
 
   const fetchSenderName = async (senderId) => {
     try {
-      const response = await fetch(`https://homelytics-project-server.onrender.com//find/byUserId/${senderId}`);
+      const response = await fetch(`https://homelytics-project-server.onrender.com/find/byUserId/${senderId}`);
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -74,7 +74,7 @@ const ChatScreen = () => {
 
   const handleSend = async () => {
     try {
-      const response = await fetch(`https://homelytics-project-server.onrender.com//chat/create/messages`, {
+      const response = await fetch(`https://homelytics-project-server.onrender.com/chat/create/messages`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

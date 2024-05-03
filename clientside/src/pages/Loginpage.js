@@ -9,7 +9,7 @@ function Loginpage() {
   const handleLogin = async (event) => {
     event.preventDefault()
     try {
-      const response = await axios.post("https://homelytics-project-server.onrender.com//login", { email, password });
+      const response = await axios.post("https://homelytics-project-server.onrender.com/login", { email, password });
       console.log(response.data);
       if (response.data.success) {
         localStorage.setItem('token',response.data.token);
